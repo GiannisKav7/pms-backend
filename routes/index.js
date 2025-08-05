@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
 
 router.get('/properties', async (req, res) => {
   try{
-    const result = await pool.query('SELECT * FROM property');
+    const result = await pool.query('SELECT property_code FROM property');
     res.json(result.rows);
   }catch (err){
     console.error('Database error:', err);
