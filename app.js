@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3000;
 // CORS middleware MUST come before routes
 app.use(cors({
   origin: process.env.NODE_ENV === 'production' 
-    ?['https://prop-management-platform.web.app', 'pms-api.up.railway.app']
+    ?['https://prop-management-platform.web.app', 'https://pms-api.up.railway.app']
     : 'http://localhost:5173',
   credentials: true
 }));
