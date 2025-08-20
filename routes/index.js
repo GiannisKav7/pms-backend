@@ -11,18 +11,20 @@ const router = express.Router();
 // callback query finished
 // pool has drained
 
+
 router.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../views/index.html'));
 });
 
-router.get('/properties', async (req, res) => {
-  try{
+router.get('/property', async (req, res) => {
+  try {
     const result = await pool.query('SELECT property_code FROM property');
     res.json(result.rows);
-  }catch (err){
+  } catch (err) {
     console.error('Database error:', err);
     res.status(500).json({ error: 'Database connection failed' });
   }
-})
+});
+
 
 module.exports = router;
